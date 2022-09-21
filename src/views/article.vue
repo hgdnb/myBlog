@@ -24,7 +24,7 @@
           </div>
         </div>
         <div class="pages_box flex-row-center">
-          <el-pagination v-model:currentPage="page" background @current-change="changePage" layout="prev, pager, next"
+          <el-pagination :page-size="6" v-model:currentPage="page" background @current-change="changePage" layout="prev, pager, next"
             :total="article_count" />
         </div>
       </div>
@@ -40,7 +40,7 @@
 <script setup>
 import article from '@/api/article'
 import catalog from '@/api/catalog'
-import { ref, inject } from 'vue'
+import { ref } from 'vue'
 import { useRouter } from 'vue-router'
 
 const calalog_list = ref(null) // 目录列表
@@ -50,10 +50,6 @@ const page = ref(1) // 分页的页码
 const article_count = ref(0) // 文章数量
 const tag_index = ref(-1) // 标签索引
 const router = useRouter() // 路由方法
-
-
-// 页面滚动到顶部
-let goTop = inject('goTop')
 
 // 查询文章列表
 async function getArticle () {
@@ -76,7 +72,6 @@ async function changeTag (index) {
   page.value = 1
   tag_index.value = index
   getArticle()
-  goTop()
 }
 
 // 改变目录
@@ -85,14 +80,12 @@ function changeCalalog (index) {
   tag_index.value = -1
   calalog_index.value = index
   getArticle()
-  goTop()
 }
 
 // 页面改变时触发
 function changePage (e) {
   page.value = e
   getArticle()
-  goTop()
 }
 
 // 点击文章跳转到详情页面

@@ -5,8 +5,8 @@ const project = {}
 // 查找项目列表
 project.findProject = (page) => {
   const query = new AV.Query('Project')
-  query.limit(9)
-  query.skip(9 * (page - 1))
+  query.limit(6)
+  query.skip(6 * (page - 1))
   return query.find()
 }
 

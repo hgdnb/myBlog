@@ -15,7 +15,9 @@
             <span v-for="(item_tag, index_tag) in article_detail.attributes.tags">{{item_tag}}</span>
           </div>
         </div>
-        <div class="detail" v-html="article_detail.attributes.content"></div>
+        <div class="detail">
+          <v-md-preview :text="article_detail.attributes.content"></v-md-preview>
+        </div>
       </div>
       <div class="right">
         <h2>相关文章推荐</h2>
@@ -24,7 +26,7 @@
             <h4 class="ellipsis_1">{{item.attributes.title}}</h4>
             <p>{{getFullTime(item.attributes.time)}}</p>
           </div>
-          <img v-if="!article_list || article_list.length == 0" class="empty" src="/public/image/empty.png" alt="">
+          <img v-if="!article_list || article_list.length == 0" class="empty" src="/image/empty.png" alt="">
         </div>
       </div>
     </div>
@@ -35,6 +37,7 @@ import article from '@/api/article';
 import { inject, ref, watch } from 'vue';
 import { useRoute, useRouter } from 'vue-router'
 import { ElLoading } from 'element-plus'
+
 const goTop = inject('goTop')
 const route = useRoute()
 const router = useRouter()
@@ -149,7 +152,6 @@ watch(route, (newVal, oldVal) => {
     }
 
     .detail {
-      padding: 15px;
       box-shadow: $box_shadow;
       background-color: white;
       border-radius: 10px;

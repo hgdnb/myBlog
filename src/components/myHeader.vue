@@ -24,7 +24,7 @@
             <h4>搜索结果</h4>
             <div class="list_box" v-loading="loading">
               <div @click="goArticleDetail(item.id)" class="one_article ellipsis_1" v-for="(item, index) in article_list" :key="item.id">{{item.attributes.title}}</div>
-              <img v-if="article_list.length == 0 && !loading" class="empty" src="/public/image/empty.png" alt="">
+              <img v-if="article_list.length == 0 && !loading" class="empty" src="/image/empty.png" alt="">
             </div>
           </div>
         </div>

@@ -9,7 +9,9 @@
         <div class="left">
           <img :src="project_detail.img" alt="">
         </div>
-        <div class="right" v-html="project_detail.content"></div>
+        <div class="right">
+          <v-md-preview :text="project_detail.content"></v-md-preview>
+        </div>
       </div>
     </div>
     <div class="main-container other" v-if="project_list && project_list.length>0">
@@ -121,6 +123,7 @@ watch(route, (newVal, oldVal) => {
     border-radius: 20px;
     box-shadow: $box_shadow;
     margin-right: 15px;
+    flex-shrink: 0;
 
     img {
       display: block;
@@ -130,7 +133,7 @@ watch(route, (newVal, oldVal) => {
 
   .right {
     flex-grow: 1;
-    padding: 10px;
+    align-self: stretch;
     background-color: white;
     border-radius: 10px;
     box-shadow: $box_shadow;

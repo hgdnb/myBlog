@@ -70,7 +70,7 @@
           </div>
         </div>
         <div class="pages_box flex-row-center">
-          <el-pagination v-model:currentPage="page" background @current-change="changePage" layout="prev, pager, next" :total="article_count" />
+          <el-pagination :page-size="6" v-model:currentPage="page" background @current-change="changePage" layout="prev, pager, next" :total="article_count" />
         </div>
       </div>
       <div class="right">

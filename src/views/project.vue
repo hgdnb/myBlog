@@ -15,7 +15,7 @@
       </div>
     </div>
     <div class="pages_box flex-row-center">
-      <el-pagination v-model:currentPage="page" background @current-change="changePage" layout="prev, pager, next"
+      <el-pagination :page-size="6" v-model:currentPage="page" background @current-change="changePage" layout="prev, pager, next"
             :total="project_count" />
     </div>
   </div>
@@ -52,7 +52,7 @@ function goProjectDetail (id) {
 
 // 查询项目列表
 async function getProject () {
-  project_list.value = await project.findProject(page)
+  project_list.value = await project.findProject(page.value)
 }
 getProject()
 

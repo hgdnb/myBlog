@@ -1,7 +1,7 @@
 <template>
   <div class="music" v-if="music_list">
     <div class="audio_source"><audio ref="audio_dom" @pause="onPause" @play="onPlay" @timeupdate="onTimeupdate"
-        @loadedmetadata="onLoadedmetadata" :src="music_url" controls="controls" crossOrigin='anonymous'></audio></div>
+        @loadedmetadata="onLoadedmetadata" :src="music_url.replace('http://', 'https://')" controls="controls" crossOrigin='anonymous'></audio></div>
     <div class="audio_visual" ref="audio_visual"></div>
     <div class="control flex-row-sb main-container">
       <div class="left">
@@ -118,6 +118,7 @@ async function getMusicList () {
       }
     })
     music_url.value = res_music.data.data[0].url
+    console.log(res_music)
   }
   init()
 }

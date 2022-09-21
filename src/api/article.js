@@ -11,8 +11,9 @@ article.findArticle = (page, catalog_id, tag) => {
   if (tag) {
     query.containsAll('tags', tag)
   }
-  query.limit(10)
-  query.skip(10 * (page - 1))
+  query.limit(6)
+  query.skip(6 * (page - 1))
+  query.descending('time');
   return query.find()
 }
 
@@ -34,6 +35,7 @@ article.findArticleOther = (id, catalog_id) => {
   query.notEqualTo('objectId', id)
   query.equalTo('catalog_id', catalog_id)
   query.limit(10)
+  query.descending('time');
   return query.find()
 }
 
@@ -42,6 +44,7 @@ article.searchArticle = (tags) => {
   const query = new AV.Query('Article')
   query.containedIn('tags', tags)
   query.limit(10)
+  query.descending('time');
   return query.find()
 }
 

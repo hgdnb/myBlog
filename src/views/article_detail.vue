@@ -119,9 +119,9 @@ watch(route, (newVal, oldVal) => {
     margin-bottom: 20px;
 
     .intro {
-      border-radius: 10px;
+      border-radius: 5px;
       background-color: white;
-      margin-bottom: 15px;
+      margin-bottom: 10px;
       padding: 15px;
       box-shadow: $box_shadow;
       h2 {
@@ -146,15 +146,19 @@ watch(route, (newVal, oldVal) => {
 
     .cover {
       box-shadow: $box_shadow;
-      border-radius: 10px;
-      margin-bottom: 15px;
+      border-radius: 5px;
+      margin-bottom: 10px;
+      display: block;
+      height: 500px;
+      object-fit: cover;
+      width: 100%;
       display: block;
     }
 
     .detail {
       box-shadow: $box_shadow;
       background-color: white;
-      border-radius: 10px;
+      border-radius: 5px;
       box-shadow: $box_shadow;
     }
   }
@@ -169,7 +173,7 @@ watch(route, (newVal, oldVal) => {
     top: 20px;
     flex-shrink: 0;
     overflow: hidden;
-    border-radius: 10px;
+    border-radius: 5px;
 
     h2 {
       padding: 15px;

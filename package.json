@@ -13,6 +13,7 @@
     "element-plus": "^2.1.11",
     "highlight.js": "^11.6.0",
     "leancloud-storage": "^4.12.2",
+    "nprogress": "^0.2.0",
     "swiper": "^8.3.2",
     "unplugin-auto-import": "^0.7.1",
     "unplugin-vue-components": "^0.19.3",

@@ -1,5 +1,5 @@
 <template>
-  <div class="index">
+  <div class="index" v-if="blogger">
     <div class="swiper" v-if="diary_banner">
       <el-carousel height="70vh" interval="10000">
         <el-carousel-item v-for="(item, index) in diary_banner.slice(0, 3)" :key="item.id">
@@ -24,7 +24,7 @@
       </el-carousel>
     </div>
     <div class="index_content main-container flex-row-sb">
-      <div class="left" v-if="blogger">
+      <div class="left">
         <div class="photo" @mouseover="show_info = '0'" @mouseleave="show_info = '1'">
           <img :src="blogger.userPhoto" alt="">
         </div>
@@ -95,8 +95,7 @@
 
 <script setup>
 import { ElCarousel, ElCarouselItem } from 'element-plus'
-import { ref, inject } from 'vue'
-import { ElLoading } from 'element-plus'
+import { ref } from 'vue'
 import { useRouter } from 'vue-router'
 import userinfo from '@/api/userinfo'
 import catalog from '@/api/catalog'
@@ -116,8 +115,6 @@ const calalog_index = ref(-1) // 目录索引
 const music_list = ref([]) // 音乐列表
 const router = useRouter() // 路由方法
 
-// 页面滚动到顶部
-let goTop = inject('goTop')
 
 // 查找音乐
 async function getMusic() {
@@ -130,14 +127,12 @@ function changeCalalog(index) {
   calalog_index.value = index
   page.value = 1
   getArticle()
-  goTop()
 }
 
 // 页面改变时触发
 function changePage (e) {
   page.value = e
   getArticle()
-  goTop()
 }
 
 // 查找日事
@@ -148,9 +143,7 @@ getDiary()
 
 // 用户信息
 async function getUserInfo () {
-  const loadingInstance = ElLoading.service({ fullscreen: true })
   blogger.value = (await userinfo.findUser()).attributes
-  loadingInstance.close()
 }
 getUserInfo()
 

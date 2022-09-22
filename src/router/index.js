@@ -1,5 +1,8 @@
 import { createRouter, createWebHashHistory } from 'vue-router'
 import { defineAsyncComponent } from 'vue';
+import NProgress from 'nprogress'
+import 'nprogress/nprogress.css'
+
 const routes = [
   {
     path: '/',
@@ -43,6 +46,12 @@ const router = createRouter({
 
 });
 
-console.log(router)
+router.beforeEach((to, from, next) => {
+  NProgress.start()
+  next()
+})
+router.afterEach((to, from) => {
+  NProgress.done()
+})
 
 export default router

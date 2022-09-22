@@ -102,7 +102,7 @@ watch(route, (newVal, oldVal) => {
 
 .intro {
   background-color: white;
-  border-radius: 10px;
+  border-radius: 5px;
   box-shadow: $box_shadow;
   padding: 10px;
 
@@ -112,7 +112,7 @@ watch(route, (newVal, oldVal) => {
 }
 
 .detail {
-  margin-top: 15px;
+  margin-top: 10px;
   align-items: flex-start;
   margin-bottom: 20px;
 
@@ -122,7 +122,7 @@ watch(route, (newVal, oldVal) => {
     padding: 10px;
     border-radius: 20px;
     box-shadow: $box_shadow;
-    margin-right: 15px;
+    margin-right: 10px;
     flex-shrink: 0;
 
     img {
@@ -135,7 +135,7 @@ watch(route, (newVal, oldVal) => {
     flex-grow: 1;
     align-self: stretch;
     background-color: white;
-    border-radius: 10px;
+    border-radius: 5px;
     box-shadow: $box_shadow;
   }
 }

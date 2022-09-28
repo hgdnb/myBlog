@@ -147,25 +147,22 @@ watch(route, (newVal, oldVal) => {
         box-shadow: $box_shadow;
         left: 50%;
         transform: translateX(-50%);
-        padding: 0 15px;
+        padding: 5px 15px 30px;
         border-radius: 8px;
         width: 200px;
         h4 {
           padding-top: 15px;
         }
         .one_article {
-          padding: 10px 0;
+          margin-top: 15px;
           cursor: pointer;
           border-bottom: 1px solid #efefef;
-          &:nth-last-child(1) {
-            border-bottom: none;
-          }
           &:hover {
             border-color: black;
           }
         }
         .list_box {
-          min-height: 100px;
+          min-height: 50px;
         }
         .empty {
           width: 100%;

@@ -172,7 +172,7 @@ function getFullTime (timestamp) {
 
 :deep(.swiper-pagination) {
   left: 50%;
-  transform: translateX(-50%);
+  transform: translateX(-50%) !important;
   top: 20px;
   display: flex;
   width: 1100px;

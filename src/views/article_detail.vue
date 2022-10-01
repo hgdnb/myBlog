@@ -83,9 +83,7 @@ watch(route, (newVal, oldVal) => {
 </script>
 <style lang="scss" scoped>
 .detail_box {
-  max-width: 1000px;
   align-items: stretch;
-  min-height: calc(100vh - 70px);
 
   .left {
     padding-bottom: 20px;
@@ -114,6 +112,7 @@ watch(route, (newVal, oldVal) => {
 
   .center {
     margin: 0 20px;
+    width: 1px;
     flex-grow: 1;
     margin-top: 20px;
     margin-bottom: 20px;
